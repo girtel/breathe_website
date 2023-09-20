@@ -12,20 +12,18 @@ headless: true
 # Order that this section appears on the page.
 weight: 30
 
-title:
+title: 
 subtitle:
 
-design:
-  columns: '1'
-  background:
-    image: coders.jpg
-    image_darken: 0
-    image_parallax: false
-    image_position: center
-    image_size: cover
-    text_color_light: true
-  spacing:
-    padding: ['20px', '0', '20px', '0']
-advanced:
-  css_class: fullscreen
 ---
+<a href="https://commission.europa.eu/index_es" style="display: inline-block;">
+  <img src="assets/media/imagen1.png">
+</a>
+
+<a href="https://assist-iot.eu/" style="display: inline-block;">
+  <img src="assets/media/imagen2.png">
+</a>
+
+<a href="https://www.upct.es" style="display: inline-block;">
+  <img src="assets/media/imagen3.png">
+</a>

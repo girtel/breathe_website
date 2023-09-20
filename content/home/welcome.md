@@ -8,9 +8,10 @@ headless: true # This file represents a page section.
 weight: 10 # Order that this section will appear.
 active: true
 title: |
-  Example (Example)
-subtitle: Financiado por Example
-#hero_media: welcome.png
+  Breaking through Air Pollution with Thinking Vehicles at the Network Edge (BREATHE)
+subtitle: EC H2020 ASSIST-IoT, contract 957258
+image_title: breathe.png
+image_height: 600px
 design:
   # Choose how many columns the section has. Valid values: 1 or 2.
   columns: '1'
