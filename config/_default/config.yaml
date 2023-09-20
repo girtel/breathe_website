@@ -3,7 +3,7 @@
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: BREATHE project # Website name
+title: Breaking through Air Pollution with Thinking Vehicles at the Network Edge (BREATHE) # Website name
 baseURL: 'https://breathe.girtel.es/' # Website URL
 canonifyURLs: false
 relativeURLs: false
