@@ -32,7 +32,7 @@ marketing:
 header:
   navbar:
     enable: true
-    size: 70
+    size: 50
     align: r
     show_logo: true
     show_language: false
