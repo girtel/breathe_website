@@ -95,15 +95,38 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-        
+
+          # Deployment job
+  deploy-girtel-sv:
+    name: Server Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Download artifact
+        uses: actions/download-artifact@v3
+      - name: ⚙ Process artifact
+        run: |
+          cd github-pages
+          mkdir ../public
+          tar -xvf artifact.tar -C ../public
+      - name: 🔑 Install SSH Key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+
+      - name: 🚀 Deploy
+        run: |
+          rsync --archive --delete --stats -e 'ssh -p ${{ secrets.PORT }}' './public/' ${{ secrets.REMOTE_DEST }}
+  
   notify:
     name: Notify
-    needs: [deploy-gh-pages]
+    needs: [deploy-girtel-sv, deploy-gh-pages]
     runs-on: ubuntu-latest
     steps:
       - name: 📤 Telegram Notification
         run: |
           curl -X POST \
            -H 'Content-Type: application/json' \
-           -d '{"chat_id": "${{ secrets.TELEGRAM_TO }}", "text": "🌏 BREATHE website has been updated.\nhttps://breathe.girtel.es", "disable_notification": false}' \
+           -d '{"chat_id": "${{ secrets.TELEGRAM_TO }}", "text": "🌏 ONOFRE-3 website has been updated.\nhttps://onofre3.girtel.es", "disable_notification": false}' \
            https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage
